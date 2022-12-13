@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "@fontsource/roboto";
+import Login from "./components/login/Login";
+import Profile from "./components/profile/Profile";
+import Register from "./components/register/Register";
+import Home from './pages/home/Home';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  // Link,
+  // useRouteMatch,
+  // useParams
+} from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
